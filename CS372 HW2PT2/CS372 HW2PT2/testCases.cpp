@@ -19,7 +19,6 @@ TEST_CASE("A wrongly formated board gives an error") {
 TEST_CASE("A living cell with less than two neighbors: dies!") {
 	REQUIRE(gameOfLife("XXX\nXXX\nXXX") == "XXX\nXXX\nXXX");
 	REQUIRE(gameOfLife("XXX\nXOX\nXXX") == "XXX\nXXX\nXXX");
-	REQUIRE(gameOfLife("XOX\nOOO\nXOX") == "XXX\nXOX\nXXX");
 	REQUIRE(gameOfLife("OOO\nXXX\nXXX") == "XOX\nXXX\nXXX");
 	REQUIRE(gameOfLife("OXO\nXXX\nOXO") == "XXX\nXXX\nXXX");
 }

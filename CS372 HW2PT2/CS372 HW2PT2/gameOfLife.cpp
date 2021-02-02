@@ -75,7 +75,7 @@ string gameOfLife(string board) {
 		for (int j = 1; j < 4; j++) {
 			int alive = neighborCount(boardArray, i, j, 'O');
 			cout << alive;
-			if (alive < 2)
+			if (alive < 2 || alive == 4)
 				boardArrayCopy[i][j] = 'X';
 		}
 	}
