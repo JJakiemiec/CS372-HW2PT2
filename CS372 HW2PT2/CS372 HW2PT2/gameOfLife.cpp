@@ -48,6 +48,10 @@ void printboard(const vector<vector<char>>& board) {
 //
 //	O represents a living cell
 //	X represents a dead cell
+//
+//returns the string after one round of the life game
+//	a cell dies if it has less than 2 neighbors or if it has 4 neighbors
+//	a cell becomes alive if it has exactly 3 neighbors
 string gameOfLife(string board) {
 	//check to see if the board is formatted correctly
 	regex format("[OX][OX][OX]\n[OX][OX][OX]\n[OX][OX][OX]");
@@ -68,19 +72,20 @@ string gameOfLife(string board) {
 	}
 	vector<vector<char>> boardArrayCopy = boardArray;
 
-	printboard(boardArray);
 
 	//do the checks to see what happens to each cell
 	for (int i = 1; i < 4; i++) {
 		for (int j = 1; j < 4; j++) {
 			int alive = neighborCount(boardArray, i, j, 'O');
-			cout << alive;
 			if (alive < 2 || alive == 4)
 				boardArrayCopy[i][j] = 'X';
+
+			int dead = neighborCount(boardArray, i, j, 'X');
+			if (dead == 3)
+				boardArrayCopy[i][j] = 'O';
 		}
 	}
-	cout << endl;
-	printboard(boardArrayCopy);
+
 
 	//convert the 2-d vector back into a string
 	string output = "";

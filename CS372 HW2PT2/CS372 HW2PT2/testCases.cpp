@@ -30,7 +30,7 @@ TEST_CASE("A living cell with four neighbors: dies!") {
 }
 
 TEST_CASE("A dead cell with exactly three neighbors: becomes alive!") {
-	REQUIRE(gameOfLife("OXO\nXOX\nXXX") == "XXX\nXOX\nXXX");
+	REQUIRE(gameOfLife("OXO\nXOX\nXXX") == "XOX\nXXX\nXXX");
 	REQUIRE(gameOfLife("XOX\nOXO\nXXX") == "XXX\nXOX\nXXX");
-	REQUIRE(gameOfLife("OOO\nOOX\nOOO") == "OOO\nOXO\nOOO");
+	REQUIRE(gameOfLife("OOO\nOOX\nOOO") == "OOX\nOOO\nOOX");
 }
